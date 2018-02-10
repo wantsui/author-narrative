@@ -1,0 +1,7 @@
+Create a..
+<p><%= link_to ("New Story") , new_writer_story_path(current_writer) %></p>
+
+<p>Stories: <%= @stories.count%> </p>
+<% @stories.each do |story| %>
+  <p><%= link_to ("#{story.id} - #{story.title}") , writer_story_path(story.writer, story) %></p>
+<% end %>
