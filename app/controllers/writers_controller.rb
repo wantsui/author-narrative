@@ -10,7 +10,7 @@ class WritersController < ApplicationController
       @stories = @writer.stories
       render :show
     elsif @writer
-      @stories = @writer.find_by(id: params[:id]).stories.where(share_work: true)
+      @stories = @writer.stories.where(share_work: true)
       render :show
     else
       render plain: 'Error'

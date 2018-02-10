@@ -2,7 +2,13 @@ Title: <%= @story.title %>
 <p>By <%= @story.writer.username %></p>
 <p>Description: <%= @story.description %></p>
 <p>Share Work? <%= @story.share_work %></p>
+
+<% if @story.writer == current_writer %>
+  <p>
+    <%= link_to ('Update Story'), { controller: 'stories', action: 'edit'}, method: :get %> |
+    <%= link_to ('Delete Story'), { controller: 'stories', action: 'destroy'}, method: :delete %>
+  </p>
+<% end %>
 <p>
-  <%= link_to ('Update Story'), { controller: 'stories', action: 'edit'}, method: :get %> |
-  <%= link_to ('Delete Story'), { controller: 'stories', action: 'destroy'}, method: :delete %>
+  <%= link_to ('Return') , writer_path(@story.writer) %>
 </p>

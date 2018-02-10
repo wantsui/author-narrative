@@ -8,3 +8,5 @@
 <% @stories.each do |story| %>
   <p><%= link_to ("#{story.id} - #{story.title}") , writer_story_path(story.writer, story) %></p>
 <% end %>
+
+<%= link_to ('Return Home') , writers_path %>

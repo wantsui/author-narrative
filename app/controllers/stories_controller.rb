@@ -15,7 +15,7 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find_by(id: params[:id])
-    if @story
+    if @story && (@story.share_work || (@story.writer == current_writer))
       render :show
     else
       render plain: 'Error'
