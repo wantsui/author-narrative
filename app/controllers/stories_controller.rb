@@ -15,11 +15,37 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find_by(id: params[:id])
-    if @story && (current_writer == @story.writer || @story.share_work)
+    if @story
       render :show
     else
       render plain: 'Error'
     end
+  end
+
+  def edit
+    @story = Story.find_by(id: params[:id])
+    if @story && (@story.writer == current_writer)
+      render :edit
+    else
+      render plain: 'Error'
+    end
+  end
+
+  def update
+    @story = Story.find_by(id: params[:id])
+    if @story.update(story_params)
+      redirect_to "/writers/#{current_writer.id}/stories/#{@story.id}"
+    else
+      render plain: 'Error'
+    end
+  end
+
+  def destroy
+    @story = Story.find_by(id: params[:id])
+    if @story && (current_writer == @story.writer)
+      @story.destroy
+    end
+    redirect_to "/writers/#{current_writer.id}"
   end
 
   private

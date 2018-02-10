@@ -2,7 +2,7 @@
 
 <% if writer_signed_in? %>
 <p><%= link_to ('View Your Profile') , writer_path(current_writer) %></p>
-  <p><%= link_to ('Logout'), destroy_writer_session_path, method: :delete %></p>
+<p><%= link_to ('Logout'), destroy_writer_session_path, method: :delete %></p>
 <% else %>
   <p><%= link_to ('Sign In') , new_writer_session_path %></p>
   <p><%= link_to ('Sign Up') , new_writer_registration_path %></p>

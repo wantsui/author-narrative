@@ -1,5 +1,8 @@
-Create a..
-<p><%= link_to ("New Story") , new_writer_story_path(current_writer) %></p>
+<h1>Profile</h1>
+<h2>Username: <%= @writer.username %></h2>
+<% if @writer == current_writer %>
+  <p><%= link_to ("Create New Story") , new_writer_story_path(current_writer) %></p>
+<% end %>
 
 <p>Stories: <%= @stories.count%> </p>
 <% @stories.each do |story| %>
