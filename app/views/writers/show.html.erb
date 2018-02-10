@@ -1,0 +1,12 @@
+<h1>Profile</h1>
+<h2>Username: <%= @writer.username %></h2>
+<% if @writer == current_writer %>
+  <p><%= link_to ("Create New Story") , new_writer_story_path(current_writer) %></p>
+<% end %>
+
+<p>Stories: <%= @stories.count%> </p>
+<% @stories.each do |story| %>
+  <p><%= link_to ("#{story.id} - #{story.title}") , writer_story_path(story.writer, story) %></p>
+<% end %>
+
+<%= link_to ('Return Home') , writers_path %>

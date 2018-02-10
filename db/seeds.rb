@@ -7,4 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Writer.create!(username: 'writer_test_1', password: ENV['seed_file_writer_default_password'], bio: "I'm a new writer!", email: ENV['seed_file_writer_default_email'])
+writer = Writer.create!(username: 'writer_test_1', password: ENV['seed_file_writer_default_password'], bio: "I'm a new writer!", email: ENV['seed_file_writer_default_email'])
+
+writer.stories.create!(title: 'Working Title#1', description: 'Not sure yet.')
+writer.stories.create!(title: 'Working Title#2', description: 'Still not sure yet.')
+writer.stories.create!(title: 'Working Title#3', description: 'Still not sure yet.', share_work: true)
