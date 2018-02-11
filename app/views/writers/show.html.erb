@@ -1,7 +1,7 @@
 <% if @writer != current_writer %>
   <h3 class="text-center">Profile</h3>
 <% else %>
-  <h3 class="text-center">Profile <%= link_to ("Edit") , edit_writer_path(@writer)%></h3>
+  <h3 class="text-center">Profile <%= link_to ("Edit") , edit_writer_path(@writer), {class: 'btn btn-primary'}%></h3>
 <% end %>
 <div class="card w-60 bg-light mb-3 text-center">
   <div class="card-body">
@@ -13,7 +13,7 @@
   <div class="card w-60 bg-light mb-3 text-center">
     <div class="card-body">
       <% if @writer == current_writer %>
-        <p class="card-text"><%= link_to ("Create New Story") , new_writer_story_path(current_writer) %></p>
+        <p class="card-text"><%= link_to ("Create New Story") , new_writer_story_path(current_writer), {class: 'btn btn-success'} %></p>
       <% end %>
       <h3 class="card-title">Stories: <%= @stories.count%></h3>
       <div class="list-group">

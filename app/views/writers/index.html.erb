@@ -15,6 +15,18 @@
   </div>
   <div class="card w-60 bg-light mb-3 text-center">
     <div class="card-body">
+      <h4 class="card-title">Featured Writer</h4>
+      <p class="card-text font-weight-bold">Username:</p>
+      <p class="card-text"><%= link_to (@writer.username) , writer_path(@writer), {class: 'btn btn-primary'} %></p>
+      <p class="card-text font-weight-bold">Bio:</p>
+      <p class="card-text"><%= @writer.bio %></p>
+      <p class="card-text font-weight-bold">Writing about..</p>
+      <p class="card-text"><%= @writer.stories.last.title %></p>
+      </p>
+    </div>
+  </div>
+  <div class="card w-60 bg-light mb-3 text-center">
+    <div class="card-body">
       <h5 class="card-title">Usage</h5>
       <p class="card-text"><%= @total_stories %> Stories</p>
       <p class="card-text"><%= @total_writers %> Writers</p>
@@ -23,21 +35,15 @@
       <p class="card-text"><li style="padding-left: 10px">Events</li></p>
       <p class="card-text"><li style="padding-left: 10px">Timelines</li></p>
       <h5 class="card-title">Tech Stack</h5>
-      <p class="card-text">PostgreSQL | Ruby on Rails | Bootstrap | Devise | Figaro | Groupdate | Chartkick </p>
-      <p><a href="https://github.com/wantsui/">GitHub Profile</a></p>
-    </div>
-  </div>
-  <div class="card w-60 bg-light mb-3 text-center">
-    <div class="card-body">
-      <h4 class="card-title">Featured Writer</h4>
-      <p class="card-text font-weight-bold">Username:</p>
-      <p class="card-text"><%= @writer.username %></p>
-      <p class="card-text font-weight-bold">Bio:</p>
-      <p class="card-text"><%= @writer.bio %></p>
-      <p class="card-text font-weight-bold">Writing about..</p>
-      <p class="card-text"><%= @writer.stories.last.title %></p>
-      <p class="card-text">View <%= link_to (@writer.username) , writer_path(@writer) %>'s profle!
-      </p>
+      <p class="card-text"><a class="badge badge-light" href="https://www.postgresql.org/">PostgreSQL</a> |
+        <a class="badge badge-light" href="http://rubyonrails.org/">Ruby on Rails</a> |
+         <a class="badge badge-light" href="https://getbootstrap.com/">Bootstrap</a> |
+         <a class="badge badge-light" href="https://github.com/plataformatec/devise">Devise</a> |
+         <a class="badge badge-light" href="https://github.com/laserlemon/figaro">Figaro</a> |
+         <a class="badge badge-light" href="https://github.com/ankane/groupdate">Groupdate</a> |
+         <a class="badge badge-light" href="https://github.com/ankane/chartkick">Chartkick</a> |
+         <a class="badge badge-light" href="http://www.chartjs.org/">Chart.js</a> </p>
+      <p><a class="badge badge-light" href="https://github.com/wantsui/author-narrative">View Author Narrative GitHub</a></p>
     </div>
   </div>
 </div>
