@@ -1,8 +1,14 @@
 <% if @writer != current_writer %>
-  <h2 class="text-center">Profile for <%= @writer.username %></h2>
+  <h3 class="text-center">Profile</h3>
 <% else %>
-  <h2 class="text-center">Your Profile</h2>
+  <h3 class="text-center">Profile <%= link_to ("Edit") , edit_writer_path(@writer)%></h3>
 <% end %>
+<div class="card w-60 bg-light mb-3 text-center">
+  <div class="card-body">
+    <h3 class="card-title">About: <%= @writer.username%></h3>
+    <p class="card-text"><%= @writer.bio %></p>
+  </div>
+</div>
 <div class="card-group">
   <div class="card w-60 bg-light mb-3 text-center">
     <div class="card-body">
@@ -19,7 +25,7 @@
   </div>
   <div class="card w-60 bg-light mb-3 text-center">
     <div class="card-body">
-      <h3 class="card-title">Latest Stories By Last Updated Date</h3>
+      <h3 class="card-title">Stories By Created Date</h3>
       <%= line_chart @daily_stories_chart, library: {animation: { duration: 2000, easing: 'easeOutQuart'}} %>
     </div>
   </div>

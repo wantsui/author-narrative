@@ -1,0 +1,23 @@
+<h3 class="text-center">Edit Profile</h3>
+<%= form_for @writer, url: { action: 'update'} do |f| %>
+  <div class='form-group text-center'>
+    <label for="description">Username</label>
+  </div>
+  <div class='form-group text-center'>
+    <%= f.text_field :username %>
+  </div>
+  <div class='form-group text-center'>
+    <label for="description">Description</label>
+  </div>
+  <div class='form-group text-center'>
+    <%= f.text_area :bio, {rows: '15', cols: 100} %>
+  </div>
+  <div class='form-group text-center'>
+    <%= submit_tag('Submit') %>
+  </div>
+<% end %>
+
+<div class='text-center'>
+  Looking to edit your account?
+  <%= link_to ("Edit account") , edit_writer_registration_path(@writer)%>
+</div>

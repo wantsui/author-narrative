@@ -34,7 +34,7 @@ class StoriesController < ApplicationController
 
   def update
     @story = Story.find_by(id: params[:id])
-    if @story.update(story_params)
+    if @story && (@story.writer == current_writer) && @story.update(story_params)
       redirect_to "/writers/#{current_writer.id}/stories/#{@story.id}"
     else
       render plain: 'Error'
