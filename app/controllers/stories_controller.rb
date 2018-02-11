@@ -6,9 +6,10 @@ class StoriesController < ApplicationController
   end
 
   def create
-    if current_writer.stories.create(story_params)
+    if current_writer && current_writer.stories.create(story_params)
       redirect_to "/writers/#{current_writer.id}"
     else
+      @story = Story.new(story_params)
       render :new
     end
   end
@@ -33,7 +34,7 @@ class StoriesController < ApplicationController
 
   def update
     @story = Story.find_by(id: params[:id])
-    if @story.update(story_params)
+    if @story && (@story.writer == current_writer) && @story.update(story_params)
       redirect_to "/writers/#{current_writer.id}/stories/#{@story.id}"
     else
       render plain: 'Error'
