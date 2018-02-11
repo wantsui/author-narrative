@@ -1,9 +1,29 @@
-<h1>Welcome to Author Narrative!</h1>
+<div class="purpose">
+  <h2>Overview</h2>
+  <p>This site is currently in alpha as part of a portfolio. Feel free to create stories as you see fit!
+    If you sign up for an account, emails may be sent from time to time on changes that can affect the site.</p>
+</div>
 
-<% if writer_signed_in? %>
-<p><%= link_to ('View Your Profile') , writer_path(current_writer) %></p>
-<p><%= link_to ('Logout'), destroy_writer_session_path, method: :delete %></p>
-<% else %>
-  <p><%= link_to ('Sign In') , new_writer_session_path %></p>
-  <p><%= link_to ('Sign Up') , new_writer_registration_path %></p>
-<% end %>
+<div class="pie">
+  <label for="pie_chart">How many stories have been shared?</label>
+  <%= pie_chart @public_private_stories_pie, library: {animation: { duration: 3000, easing: 'easeOutCirc'}} %>
+</div>
+
+<div class="total_stories_so_far">
+  + <%= @total_stories %> Stories
+</div>
+
+<div class="writer_link">
+  <%= link_to (@writer.username) , writer_path(@writer) %> has been coming up with stories!
+</div>
+
+<div class="future_updates">
+  <p>Upcoming Features</p>
+  <li>Characters</li>
+  <li>Events</li>
+  <li>Timelines</li>
+</div>
+
+<div class="tech_stack">
+  PostgreSQL | Ruby on Rails
+</div>

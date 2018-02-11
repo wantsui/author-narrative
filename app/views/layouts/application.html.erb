@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AuthorNarrative</title>
+    <title>Author Narrative</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <div> <h1> Author Narrative </h1>
+      <% if writer_signed_in? %>
+        <%= link_to ('View Your Profile') , writer_path(current_writer) %> | <%= link_to ('Logout'), destroy_writer_session_path, method: :delete %>
+      <% else %>
+        <%= link_to ('Home') , writers_path %> | <%= link_to ('Sign In') , new_writer_session_path %> | <%= link_to ('Sign Up') , new_writer_registration_path %>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
