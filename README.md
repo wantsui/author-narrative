@@ -17,8 +17,7 @@ I kept the tech stack simple so I could learn more about different Rails gems. F
 ### Database Design
 I started off with two simple tables.
 
-![Schema][img]
-[img]: author-narrative-schema.png
+![Schema](author-narrative-schema.png)
 
 Design:
 1. A writer can have many stories.
