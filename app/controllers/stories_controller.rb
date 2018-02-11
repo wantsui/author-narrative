@@ -44,8 +44,10 @@ class StoriesController < ApplicationController
     @story = Story.find_by(id: params[:id])
     if @story && (current_writer == @story.writer)
       @story.destroy
+      redirect_to "/writers/#{current_writer.id}"
+    else
+      redirect_to "/writers"
     end
-    redirect_to "/writers/#{current_writer.id}"
   end
 
   private

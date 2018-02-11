@@ -1,9 +1,40 @@
-<h1>Welcome to Author Narrative!</h1>
+<h2>Platform for Writers [in Development]</h2>
+<p style="padding-left: 10px">For writers who like to plan, with an analytical twist.</p>
+<p style="padding-left: 10px">This is a portfolio piece in development.</p>
+<div class="card-group">
+  <div class="card w-60 bg-light mb-3 text-center">
+    <div class="card-body">
+      <h3 class="card-title">Current Story Visibility</h3>
+      <%= pie_chart @public_private_stories_pie, library: {animation: { duration: 3000, easing: 'easeOutCirc'}} %>
+      <p class="card-text">Writers can create and plan their story private, then share them when ready.</p>
+    </div>
+  </div>
+  <div class="card w-60 bg-light mb-3 text-center">
+    <div class="card-body">
+      <h3 class="card-title">Usage</h3>
+      <p class="card-text"><%= @total_stories %> Stories</p>
+      <p class="card-text"><%= @total_writers %> Writers</p>
+    </div>
+  </div>
+  <div class="card w-60 bg-light mb-3 text-center">
+    <div class="card-body">
+      <h3 class="card-title">Featured Writer</h3>
+      <p class="card-text">Username: <%= @writer.username %></p>
+      <p class="card-text">Bio: <%= @writer.bio %></p>
+      <p class="card-text">View <%= link_to (@writer.username) , writer_path(@writer) %>'s profle!
+      </p>
+    </div>
+  </div>
+</div>
 
-<% if writer_signed_in? %>
-<p><%= link_to ('View Your Profile') , writer_path(current_writer) %></p>
-<p><%= link_to ('Logout'), destroy_writer_session_path, method: :delete %></p>
-<% else %>
-  <p><%= link_to ('Sign In') , new_writer_session_path %></p>
-  <p><%= link_to ('Sign Up') , new_writer_registration_path %></p>
-<% end %>
+<div class="future_updates">
+  <h4>Upcoming Features</h4>
+  <li style="padding-left: 10px">Characters</li>
+  <li style="padding-left: 10px">Events</li>
+  <li style="padding-left: 10px">Timelines</li>
+</div>
+
+<div style="padding-left: 10px" class="tech_stack">
+  <p>Tech Stack: PostgreSQL | Ruby on Rails</p>
+  <p><a href="https://github.com/wantsui/author-narrative">Visit GitHub Page</a></p>
+</div>
