@@ -1,13 +1,14 @@
-Title: <%= @story.title %>
-<p>By <%= @story.writer.username %></p>
-<p>Description: <%= @story.description %></p>
-<% if @story.writer == current_writer %>
-  <p>Share Work? <%= @story.share_work %></p>
-  <p>
-    <%= link_to ('Update Story'), { controller: 'stories', action: 'edit'}, method: :get %> |
-    <%= link_to ('Delete Story'), { controller: 'stories', action: 'destroy'}, method: :delete %>
-  </p>
-<% end %>
-<p>
-  <%= link_to ('Return') , writer_path(@story.writer) %>
-</p>
+<div class="card w-60 bg-light mb-3 text-center">
+  <div class="card-body">
+    <h3 class="card-title"><%= @story.title %></h3>
+    <p class="card-text">By: <%= link_to (@story.writer.username) , writer_path(@story.writer) %></p>
+    <p class="card-text">Description: <%= @story.description %></p>
+    <% if @story.writer == current_writer %>
+      <p>Share Work? <%= @story.share_work %></p>
+      <p>
+        <%= link_to ('Update Story'), { controller: 'stories', action: 'edit'}, method: :get %> |
+        <%= link_to ('Delete Story'), { controller: 'stories', action: 'destroy'}, method: :delete %>
+      </p>
+    <% end %>
+  </div>
+</div>

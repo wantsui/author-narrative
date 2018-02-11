@@ -5,14 +5,22 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-    <div> <h1> Author Narrative </h1>
-      <% if writer_signed_in? %>
-        <%= link_to ('View Your Profile') , writer_path(current_writer) %> | <%= link_to ('Logout'), destroy_writer_session_path, method: :delete %>
-      <% else %>
-        <%= link_to ('Home') , writers_path %> | <%= link_to ('Sign In') , new_writer_session_path %> | <%= link_to ('Sign Up') , new_writer_registration_path %>
-      <% end %>
+    <div><h1>Author Narrative</h1>
+      <ul class="nav justify-content-center">
+        <% if writer_signed_in? %>
+          <li class="nav-item"><%= link_to ('Home') , writers_path, { class: "nav-link active" }  %></li>
+          <li class="nav-item"><%= link_to ('Profile') , writer_path(current_writer), { class: "nav-link" } %></li>
+          <li class="nav-item"><%= link_to ('Logout'), destroy_writer_session_path, { class: "nav-link" , method: :delete } %></li>
+        <% else %>
+          <li class="nav-item"><%= link_to ('Home') , writers_path, { class: "nav-link active" }  %></li>
+          <li class="nav-item"><%= link_to ('Sign In') , new_writer_session_path, { class: "nav-link" }  %></li>
+          <li class="nav-item"><%= link_to ('Sign Up') , new_writer_registration_path, { class: "nav-link" }  %></li>
+        <% end %>
+      </ul>
+
     </div>
     <%= yield %>
   </body>

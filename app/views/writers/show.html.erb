@@ -1,12 +1,26 @@
-<h1>Profile</h1>
-<h2>Username: <%= @writer.username %></h2>
-<% if @writer == current_writer %>
-  <p><%= link_to ("Create New Story") , new_writer_story_path(current_writer) %></p>
+<% if @writer != current_writer %>
+  <h2 class="text-center">Profile for <%= @writer.username %></h2>
+<% else %>
+  <h2 class="text-center">Your Profile</h2>
 <% end %>
-
-<p>Stories: <%= @stories.count%> </p>
-<% @stories.each do |story| %>
-  <p><%= link_to ("#{story.id} - #{story.title}") , writer_story_path(story.writer, story) %></p>
-<% end %>
-
-<%= link_to ('Return Home') , writers_path %>
+<div class="card-group">
+  <div class="card w-60 bg-light mb-3 text-center">
+    <div class="card-body">
+      <% if @writer == current_writer %>
+        <p class="card-text"><%= link_to ("Create New Story") , new_writer_story_path(current_writer) %></p>
+      <% end %>
+      <h3 class="card-title">Stories: <%= @stories.count%></h3>
+      <div class="list-group">
+        <% @stories.each do |story| %>
+          <p><%= link_to ("#{story.id} - #{story.title}") , writer_story_path(story.writer, story), {class: 'list-group-item'} %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="card w-60 bg-light mb-3 text-center">
+    <div class="card-body">
+      <h3 class="card-title">Latest Stories By Last Updated Date</h3>
+      <%= line_chart @daily_stories_chart, library: {animation: { duration: 2000, easing: 'easeOutQuart'}} %>
+    </div>
+  </div>
+</div>

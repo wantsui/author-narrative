@@ -1,29 +1,40 @@
-<div class="purpose">
-  <h2>Overview</h2>
-  <p>This site is currently in alpha as part of a portfolio. Feel free to create stories as you see fit!
-    View this site for more news soon!</p>
-</div>
-
-<div class="pie">
-  <label for="pie_chart">How many stories have been shared?</label>
-  <%= pie_chart @public_private_stories_pie, library: {animation: { duration: 3000, easing: 'easeOutCirc'}} %>
-</div>
-
-<div class="total_stories_so_far">
-  + <%= @total_stories %> Stories
-</div>
-
-<div class="writer_link">
-  <%= link_to (@writer.username) , writer_path(@writer) %> has been coming up with stories!
+<h2>Platform for Writers [in Development]</h2>
+<p style="padding-left: 10px">For writers who like to plan, with an analytical twist.</p>
+<p style="padding-left: 10px">This is a portfolio piece in development.</p>
+<div class="card-group">
+  <div class="card w-60 bg-light mb-3 text-center">
+    <div class="card-body">
+      <h3 class="card-title">Current Story Visibility</h3>
+      <%= pie_chart @public_private_stories_pie, library: {animation: { duration: 3000, easing: 'easeOutCirc'}} %>
+      <p class="card-text">Writers can create and plan their story private, then share them when ready.</p>
+    </div>
+  </div>
+  <div class="card w-60 bg-light mb-3 text-center">
+    <div class="card-body">
+      <h3 class="card-title">Usage</h3>
+      <p class="card-text"><%= @total_stories %> Stories</p>
+      <p class="card-text"><%= @total_writers %> Writers</p>
+    </div>
+  </div>
+  <div class="card w-60 bg-light mb-3 text-center">
+    <div class="card-body">
+      <h3 class="card-title">Featured Writer</h3>
+      <p class="card-text">Username: <%= @writer.username %></p>
+      <p class="card-text">Bio: <%= @writer.bio %></p>
+      <p class="card-text">View <%= link_to (@writer.username) , writer_path(@writer) %>'s profle!
+      </p>
+    </div>
+  </div>
 </div>
 
 <div class="future_updates">
-  <p>Upcoming Features</p>
-  <li>Characters</li>
-  <li>Events</li>
-  <li>Timelines</li>
+  <h4>Upcoming Features</h4>
+  <li style="padding-left: 10px">Characters</li>
+  <li style="padding-left: 10px">Events</li>
+  <li style="padding-left: 10px">Timelines</li>
 </div>
 
-<div class="tech_stack">
-  PostgreSQL | Ruby on Rails
+<div style="padding-left: 10px" class="tech_stack">
+  <p>Tech Stack: PostgreSQL | Ruby on Rails</p>
+  <p><a href="https://github.com/wantsui/author-narrative">Visit GitHub Page</a></p>
 </div>

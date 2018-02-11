@@ -1,10 +1,24 @@
-<h1>Edit Story Form</h1>
-<%= form_for @story, url: { action: 'update' } do |f| %>
-  <div><label for="title">Title</label></div>
-  <%= f.text_field :title %>
-  <div><label for="description">Description</label></div>
-  <div><%= f.text_area :description %></div>
-  <label for="share_work">Share Work</label>
-  <div><%= f.check_box :share_work %></div>
-  <div><%= submit_tag('Submit') %></div>
+<h3 class="text-center">Edit Story Form</h3>
+<%= form_for @story, url: { action: 'update'} do |f| %>
+  <div class='form-group text-center'>
+    <label for="title">Title</label>
+  </div>
+  <div class="text-center">
+    <%= f.text_field :title, {size: 100}%>
+  </div>
+  <div class='form-group text-center'>
+    <label for="description">Description</label>
+  </div>
+  <div class='form-group text-center'>
+    <%= f.text_area :description, {rows: '15', cols: 100} %>
+  </div>
+  <div class='text-center'>
+    Share Work
+  </div>
+  <div class='form-group text-center'>
+    <%= f.check_box :share_work %>
+  </div>
+  <div class='form-group text-center'>
+    <%= submit_tag('Submit') %>
+  </div>
 <% end %>

@@ -12,3 +12,5 @@ writer = Writer.create!(username: 'writer_test_1', password: ENV['seed_file_writ
 writer.stories.create!(title: 'Working Title#1', description: 'Not sure yet.')
 writer.stories.create!(title: 'Working Title#2', description: 'Still not sure yet.')
 writer.stories.create!(title: 'Working Title#3', description: 'Still not sure yet.', share_work: true)
+writer.stories.create!(title: 'Working Title#3', description: 'Still not sure yet.', share_work: true, created_at: DateTime.now-1.day)
+writer.stories.create!(title: 'Working Title#3', description: 'Still not sure yet.', share_work: true, created_at: DateTime.now-1.day)
