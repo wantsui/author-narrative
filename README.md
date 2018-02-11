@@ -8,10 +8,10 @@ I kept the tech stack simple so I could learn more about different Rails gems. F
 1. PostgreSQL
 2. Ruby on Rails
 3. Additional Gems:
-  - [Devise](https://github.com/plataformatec/devise)
-  - [Figaro](https://github.com/laserlemon/figaro)
-  - [Chartkick](https://github.com/ankane/chartkick)
-  - [Groupdate](https://github.com/ankane/groupdate)
+      - [Devise](https://github.com/plataformatec/devise)
+      - [Figaro](https://github.com/laserlemon/figaro)
+      - [Chartkick](https://github.com/ankane/chartkick) with [Chart.js](http://www.chartjs.org/)
+      - [Groupdate](https://github.com/ankane/groupdate)
 4. [Bootstrap](https://getbootstrap.com/)
 
 ### Database Design
@@ -30,6 +30,9 @@ Incorporating the Devise gem ended up creating additional fields like encrypted 
 2. A writer can create as many private stories as they want. When the story is meant to be shared, it can! So brainstorm away!
 3. A test writer has been set up with some story ideas.
 
+### Eager to try it out?
+Visit: https://author-narrative.herokuapp.com/
+
 ### Resources
 1. Bootstrap - https://getbootstrap.com/
 2. Ruby on Rails - http://guides.rubyonrails.org/
@@ -37,3 +40,4 @@ Incorporating the Devise gem ended up creating additional fields like encrypted 
 4. Devise - https://github.com/plataformatec/devise
 5. Figaro - https://github.com/laserlemon/figaro
 6. Groupdate - https://github.com/ankane/groupdate
+7. Chart.js - http://www.chartjs.org/

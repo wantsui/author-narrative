@@ -4,7 +4,7 @@ class Writer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :username, uniqueness: { case_sensitive: false }
+  validates :username, uniqueness: { case_sensitive: false }, length: { in: 1..30 }
 
   has_many :stories, dependent: :destroy
 end
