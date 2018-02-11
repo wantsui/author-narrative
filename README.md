@@ -29,7 +29,7 @@ Incorporating the Devise gem ended up creating additional fields like encrypted 
 ### Current Features
 1. A guest can check out profiles for other writers if they have the link. However, they will only be able to see public stories.
 2. A writer can create as many private stories as they want. When the story is meant to be shared, it can! So brainstorm away!
-3. I created a seed file with a default user.
+3. A test writer has been set up with some story ideas.
 
 ### Resources
 1. Bootstrap - https://getbootstrap.com/
