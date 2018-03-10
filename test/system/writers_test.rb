@@ -43,9 +43,10 @@ class WritersTest < ApplicationSystemTestCase
 
     assert page.status_code == 200
     assert page.title == "Author Narrative"
+    assert_not page.text == "Author Narrative Home Sign In Sign Up Log in Email Password Remember me"
   end
 
-  test "a writer cannot log in with the correct credentials" do
+  test "a writer cannot log in with the wrong credentials" do
     visit('/')
     click_on "Sign In"
     fill_in "Email", with: ENV['seed_file_writer_default_email']
@@ -54,6 +55,7 @@ class WritersTest < ApplicationSystemTestCase
 
     assert page.status_code == 200
     assert page.current_url.include?("writers/sign_in")
+    assert page.text == "Author Narrative Home Sign In Sign Up Log in Email Password Remember me"
   end
 
 end
