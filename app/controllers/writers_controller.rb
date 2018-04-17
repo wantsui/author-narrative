@@ -10,12 +10,11 @@ class WritersController < ApplicationController
 
   def show
     @writer = Writer.find_by(id: params[:id])
-    if @writer == current_writer
-      @daily_stories_chart = @writer.stories.group_by_day(:created_at).count
-    elsif @writer
-      @daily_stories_chart = @writer.custom_created_date_json_to_date
-      @stories_by_word_count_chart = @writer.custom_stories_by_word_count_json
-    end
+
+    display_all = (@writer == current_writer)
+    @daily_stories_chart = @writer.custom_created_date_json_to_date(display_all)
+    @stories_by_word_count_chart = @writer.custom_stories_by_word_count_json(display_all)
+
     if @writer == current_writer
       @stories = @writer.stories
       render :show
