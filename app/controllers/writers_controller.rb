@@ -13,7 +13,7 @@ class WritersController < ApplicationController
     if @writer == current_writer
       @daily_stories_chart = @writer.stories.group_by_day(:created_at).count
     elsif @writer
-      @daily_stories_chart = @writer.stories.where(share_work: true).group_by_day(:created_at).count
+      @daily_stories_chart = @writer.custom_created_date_json_to_date
     end
     if @writer == current_writer
       @stories = @writer.stories
