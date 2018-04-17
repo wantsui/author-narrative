@@ -1,22 +1,21 @@
-<% if @writer != current_writer %>
-  <h3 class="text-center">Profile</h3>
-<% else %>
-  <h3 class="text-center">Profile <%= link_to ("Edit") , edit_writer_path(@writer), {class: 'btn btn-primary'}%></h3>
-<% end %>
+<h3 class="text-center">Profile: <%= @writer.username%></h3>
 
 <div class="card-group">
   <div class="card w-60 bg-light mb-3 text-center">
     <div class="card-body">
-      <h3 class="card-title">About: <%= @writer.username%></h3>
+      <h3 class="card-title">About:
+        <% if @writer == current_writer %>
+          <%= link_to ("Edit Profile") , edit_writer_path(@writer), {class: 'btn btn-primary'}%>
+        <% end %>
+      </h3>
       <p class="card-text"><%= @writer.bio %></p>
     </div>
-  </div>
-  <div class="card w-60 bg-light mb-3 text-center">
     <div class="card-body">
-      <% if @writer == current_writer %>
-        <p class="card-text"><%= link_to ("Create New Story") , new_writer_story_path(current_writer), {class: 'btn btn-success'} %></p>
-      <% end %>
-      <h3 class="card-title">Stories: <%= @stories.count%></h3>
+      <h3 class="card-title">Stories: <%= @stories.count%>
+        <% if @writer == current_writer %>
+            <%= link_to ("Create New Story") , new_writer_story_path(current_writer), {class: 'btn btn-success'} %>
+        <% end %>
+      </h3>
       <div class="list-group">
         <% @stories.each do |story| %>
           <p><%= link_to ("#{story.id} - #{story.title}") , writer_story_path(story.writer, story), {class: 'list-group-item'} %></p>
@@ -24,23 +23,17 @@
       </div>
     </div>
   </div>
-</div>
 
-<h4 class="text-center">Metrics</h4>
-<div class="card-group">
   <div class="card w-60 bg-light mb-3 text-center">
     <div class="card-body">
-      <h3 class="card-title">Stories By Created Date Activity</h3>
+      <h3 class="card-title">Metrics</h3>
+      <h4 class="card-title">Stories By Created Date Activity</h4>
       <%= line_chart @daily_stories_chart, library: {animation: { duration: 8000, easing: 'easeOutQuart'}} %>
     </div>
-  </div>
-  <div class="card w-60 bg-light mb-3 text-center">
     <div class="card-body">
-      <h3 class="card-title">Stories By Description Word Count</h3>
+      <h4 class="card-title">Stories By Description Word Count</h4>
       <%= bar_chart @stories_by_word_count_chart, library: {animation: { duration: 8000, easing: 'easeOutQuart'}} %>
     </div>
   </div>
-</div>
-<div class="card-group">
 
 </div>
