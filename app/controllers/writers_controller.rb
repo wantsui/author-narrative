@@ -14,6 +14,7 @@ class WritersController < ApplicationController
       @daily_stories_chart = @writer.stories.group_by_day(:created_at).count
     elsif @writer
       @daily_stories_chart = @writer.custom_created_date_json_to_date
+      @stories_by_word_count_chart = @writer.custom_stories_by_word_count_json
     end
     if @writer == current_writer
       @stories = @writer.stories

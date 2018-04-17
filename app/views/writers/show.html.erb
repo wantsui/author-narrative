@@ -3,13 +3,14 @@
 <% else %>
   <h3 class="text-center">Profile <%= link_to ("Edit") , edit_writer_path(@writer), {class: 'btn btn-primary'}%></h3>
 <% end %>
-<div class="card w-60 bg-light mb-3 text-center">
-  <div class="card-body">
-    <h3 class="card-title">About: <%= @writer.username%></h3>
-    <p class="card-text"><%= @writer.bio %></p>
-  </div>
-</div>
+
 <div class="card-group">
+  <div class="card w-60 bg-light mb-3 text-center">
+    <div class="card-body">
+      <h3 class="card-title">About: <%= @writer.username%></h3>
+      <p class="card-text"><%= @writer.bio %></p>
+    </div>
+  </div>
   <div class="card w-60 bg-light mb-3 text-center">
     <div class="card-body">
       <% if @writer == current_writer %>
@@ -23,10 +24,23 @@
       </div>
     </div>
   </div>
+</div>
+
+<h4 class="text-center">Metrics</h4>
+<div class="card-group">
   <div class="card w-60 bg-light mb-3 text-center">
     <div class="card-body">
-      <h3 class="card-title">Stories By Created Date To Date</h3>
-      <%= line_chart @daily_stories_chart, library: {animation: { duration: 2000, easing: 'easeOutQuart'}} %>
+      <h3 class="card-title">Stories By Created Date Activity</h3>
+      <%= line_chart @daily_stories_chart, library: {animation: { duration: 8000, easing: 'easeOutQuart'}} %>
     </div>
   </div>
+  <div class="card w-60 bg-light mb-3 text-center">
+    <div class="card-body">
+      <h3 class="card-title">Stories By Description Word Count</h3>
+      <%= bar_chart @stories_by_word_count_chart, library: {animation: { duration: 8000, easing: 'easeOutQuart'}} %>
+    </div>
+  </div>
+</div>
+<div class="card-group">
+
 </div>

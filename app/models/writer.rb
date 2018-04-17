@@ -13,9 +13,17 @@ class Writer < ApplicationRecord
     writer_date = self.stories.where(share_work:true).order(:created_at).first.created_at
     custom_created_date_json = {}
     while writer_date <= DateTime.now
-      custom_created_date_json[writer_date] = self.stories.where(share_work: true).where(created_at: (writer_date.midnight)..(writer_date.midnight+1.day)).count
+      custom_created_date_json[writer_date] = self.stories.where(share_work: true).where(created_at: (writer_date.midnight)..(writer_date.midnight + 1.day)).count
       writer_date = writer_date + 1.day
     end
     custom_created_date_json
+  end
+
+  def custom_stories_by_word_count_json
+    custom_stories_by_word_count_json = {}
+    self.stories.each do |story|
+      custom_stories_by_word_count_json[story.title] = story.description.split.count
+    end
+    custom_stories_by_word_count_json
   end
 end
