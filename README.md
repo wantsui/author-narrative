@@ -30,9 +30,6 @@ Incorporating the Devise gem ended up creating additional fields like encrypted 
 2. A writer can create as many private stories as they want. When the story is meant to be shared, it can! So brainstorm away!
 3. A test writer has been set up with some story ideas.
 
-### Eager to try it out?
-Visit: https://author-narrative.herokuapp.com/
-
 ### Resources
 1. Bootstrap - https://getbootstrap.com/
 2. Ruby on Rails - http://guides.rubyonrails.org/
